@@ -1,0 +1,32 @@
+# General
+namespace: java-apps
+name: java-springboot
+# Ingress
+ingress:
+  host: localhost
+  service_port: 80
+# Service
+service:
+  type: NodePort
+  port: 80
+  targetPort: 8080
+# Deployment
+deployment:
+  replicaCount: 2
+  docker_hub: eevangelista
+  image: java-springboot
+  tag: latest
+  containerPort: 8080
+  cpu: "0.2"
+  memory: "200Mi"
+# HPA
+hpa:
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 5
+
+
+
+
+
+
